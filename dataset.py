@@ -5,14 +5,13 @@ a sequence of labels, one per word, in a TSV format.
 '''
 
 from argparse import ArgumentParser
-from tree import SeqTree, RelativeLevelTreeEncoder
+from .tree import SeqTree, RelativeLevelTreeEncoder
 from nltk.corpus import treebank
 
 import nltk
 import argparse
 import os
 import codecs
-import utils
 import random
 
 
@@ -74,7 +73,7 @@ def write_linearized_trees(path_dest, sequences):
         for sentence in sequences:
              
             for word, postag,gold in sentence:
-                f.write(u"\t".join([word,unicode(postag),unicode(gold)])+u"\n")
+                f.write(u"\t".join([word,postag,gold])+u"\n")
             f.write(u"\n")    
 
 

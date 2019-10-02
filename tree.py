@@ -257,7 +257,7 @@ class RelativeLevelTreeEncoder(object):
         previous_at = None
         first = True
 
-        sequence = map(self.preprocess_tags,sequence)
+        sequence = list(map(self.preprocess_tags,sequence))
         sequence = self._to_absolute_encoding(sequence)      
 
         for j,(level,label) in enumerate(sequence):
@@ -281,7 +281,7 @@ class RelativeLevelTreeEncoder(object):
                 continue
                    
             i=0
-            for i in xrange(level-1):
+            for i in range(level-1):
                 if len(current_level) == 0 or i >= sequence[j-1][0]-1: 
                     child_tree = Tree(SeqTree.EMPTY_LABEL,[])                      
                     current_level.append(child_tree)   
