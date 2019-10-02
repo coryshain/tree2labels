@@ -8,7 +8,7 @@ import tempfile
 import copy
 import sys
 import time
-from tree import SeqTree, RelativeLevelTreeEncoder
+from .tree import SeqTree, RelativeLevelTreeEncoder
 
 
 """
@@ -86,7 +86,7 @@ def sequence_to_parenthesis(sentences,labels):
                 #If a node has more than two children
                 #it means that the constituent should have been filled.
                 if len(tree) > 1:
-                    print "WARNING: ROOT empty node with more than one child"
+                    print("WARNING: ROOT empty node with more than one child")
                 else:
                     while (tree.label() == SeqTree.EMPTY_LABEL) and len(tree) == 1:
                         tree = tree[0]
